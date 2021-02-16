@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let myArray = ["Aditya", "Himawan", "IPK", 4, 3.7]
+
+        myArray.forEach(function (data) {
+            document.write("<p>" + data + "</p>");
+        })
+
+        let profile = {
+            firstName: "Aditya",
+            lastName: "Himawan",
+            alamat: {
+                provinsi: "Jawa Tengah",
+                kabupaten: "Kebumen"
+            },
+            kelas: "BCI",
+            nim: 18610151
+        }
+
+        document.write(
+            "<p> Nama Lengkap : " + profile.firstName + " " + profile.lastName + "</p>" +
+            "<p> Alamat Lengkap : " + profile.alamat.provinsi + ", " + profile.alamat.kabupaten + "</p>" +
+            "<p> Kelas : " + profile.kelas + "</p>" +
+            "<p> Nim : " + profile.nim + "</p>"
+
+        )
+
+        const aString = '10';
+        const aNumber = 10
+
+        document.write(typeof (aString))
+        document.write("<br>")
+        document.write(typeof (aNumber))
+        document.write("<br>")
+        document.write(aString == aNumber) // true, karena nilainya sama-sama 10
+        document.write("  => true, karena nilainya sama-sama 10 ")
+        document.write("<br>")
+        document.write(aString === aNumber)
+        document.write("  => false, karena walaupun nilainya sama, tetapi tipe datanya berbeda") // false, karena walaupun nilainya sama, tetapi tipe datanya berbeda
+
+        let a = 10;
+        let b = 12;
+
+        /* AND operator */
+        document.write("<br>")
+        document.write(a < 15 && b > 10); // (true && true) -> true
+        document.write("<br>")
+        document.write(a > 15 && b > 10); // (false && true) -> false
+
+        /* OR operator */
+        document.write("<br>")
+         document.write(a < 15 || b > 10); // (true || true) -> true
+         document.write("<br>")
+         document.write(a > 15 || b > 10); // (false || true) -> true
+
+        /* NOT operator */
+        document.write("<br>")
+        document.write(!(a < 15)); // !(true) -> false
+        document.write("<br>")
+        document.write(!(a < 15 && b > 10)); // !(true && true) -> !(true) -> false
+    </script>
+</body>
+
+</html>
