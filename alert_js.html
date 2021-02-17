@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        const firstName = prompt("Nama depan?")
+        const lastName = prompt("Nama belakang?")
+        const lang = prompt("pake bahasa apa?")
+
+        const user = {
+            name: {
+                first: firstName,
+                last: lastName,
+            },
+            language: lang
+        }
+
+        function biodata() {
+            let pesan
+            if (user.language === "English") {
+                pesan = alert("Nice to meet you " + user.name.first + " " + user.name.last + "!");
+            } else if (user.language === "French") {
+                pesan = alert("Ravi de vous rencontrer " + user.name.first + " " + user.name.last + "!");
+            } else if (user.language === "Japanese") {
+                pesan = alert("Hajimemashite, " + user.name.first + " " + user.name.last + "!");
+            } else {
+                pesan = alert("Senang bertemu dengan Anda " + user.name.first + " " + user.name.last + "!");
+            }
+            return pesan;
+        }
+
+        biodata()
+
+    </script>
+</body>
+
+</html>

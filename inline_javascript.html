@@ -47,7 +47,9 @@
         document.write("  => true, karena nilainya sama-sama 10 ")
         document.write("<br>")
         document.write(aString === aNumber)
-        document.write("  => false, karena walaupun nilainya sama, tetapi tipe datanya berbeda") // false, karena walaupun nilainya sama, tetapi tipe datanya berbeda
+        document.write(
+                "  => false, karena walaupun nilainya sama, tetapi tipe datanya berbeda"
+                ) // false, karena walaupun nilainya sama, tetapi tipe datanya berbeda
 
         let a = 10;
         let b = 12;
@@ -60,15 +62,90 @@
 
         /* OR operator */
         document.write("<br>")
-         document.write(a < 15 || b > 10); // (true || true) -> true
-         document.write("<br>")
-         document.write(a > 15 || b > 10); // (false || true) -> true
+        document.write(a < 15 || b > 10); // (true || true) -> true
+        document.write("<br>")
+        document.write(a > 15 || b > 10); // (false || true) -> true
 
         /* NOT operator */
         document.write("<br>")
         document.write(!(a < 15)); // !(true) -> false
         document.write("<br>")
         document.write(!(a < 15 && b > 10)); // !(true && true) -> !(true) -> false
+        document.write("<br>")
+        let x = 70;
+        if (x >= 75) {
+            document.write("Nilai Lebih dari 75")
+        } else {
+            document.write("Nilai kurang dari KKM")
+        }
+        document.write("<br>")
+        let nilai = 70;
+        let hasil = 'E'
+
+        if (nilai === 90) {
+            document.write('A')
+        } else if (nilai === 80) {
+            document.write('B')
+        } else if (nilai === 70) {
+            document.write('C')
+        }
+        document.write("<br>")
+        for (let i = 0; i <= 5; i++) {
+            document.write(i)
+        }
+        document.write("<br>")
+        let myArray1 = ["AA", "AB", "AC", "AD"]
+
+        for (let i = 0; i < myArray1.length; i++) {
+            document.write(myArray1[i])
+        }
+        document.write("<br> For of Loop <br>")
+        let myArray2 = ["AA", "AB", "AC", "AD"]
+        for (const arrayIndex of myArray2) {
+            document.write(arrayIndex)
+        }
+        document.write("<br> Function without parameter Argument<br>")
+
+        function halo() {
+            let p = "Halo Selamat Datang"
+            return p
+        }
+        document.write(halo())
+        document.write("<br> Function with parameter Argument<br>")
+
+        function kali(a, b) {
+            c = a * b
+            return c
+        }
+
+        document.write(kali(8, 5))
+        document.write("<br>")
+
+        function greeting(name, language) {
+            if (language === "English") {
+                return "Good Morning " + name + "!";
+            } else if (language === "French") {
+                return "Bonjour " + name + "!";
+            } else {
+                return "Selamat Pagi " + name + "!";
+            }
+        }
+
+        let greetingMessage = greeting("Adit", "English");
+        document.write(greetingMessage);
+
+        // global variable, dapat diakses pada parent() dan child()
+        const p = 'a';
+
+        function parent() {
+            // local variable, dapat diakses pada parent() dan child(), tetapi tidak dapat diakses diluar dari fungsi tersebut.
+            const b = 'b';
+
+            function child() {
+                // local varible, dapat diakses hanya pada fungsi child().
+                const c = 'c';
+            }
+        }
     </script>
 </body>
 

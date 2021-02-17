@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 100%;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            border: 1px solid sandybrown;
+        }
+
+        tr {
+            height: 30px;
+        }
+
+        tr:hover {
+            background-color: aliceblue;
+        }
+
+        thead {
+            background-color: rgb(236, 193, 51);
+            text-align: center;
+        }
+
+        div {
+            background-color: azure;
+            border-radius: 30px;
+            margin-top: 10px;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <td>Method</td>
+            <td>Contoh</td>
+            <td>Fungsi</td>
+        </thead>
+        <tr>
+            <td>getElementById()</td>
+            <td>document.getElementById(“display”);</td>
+            <td>Mengembalikan elemen yang memiliki nilai id “display”.</td>
+        </tr>
+        <tr>
+            <td>getElementsByName()</td>
+            <td>document.getElementsByName(“button”)</td>
+            <td>Mengembalikan banyak elemen (HTMLCollection) yang memiliki attribute name dengan nilai “button”.</td>
+        </tr>
+        <tr>
+            <td>getElementsByClassName()</td>
+            <td>document.getElementsByClassName(“button”)</td>
+            <td>Mengembalikan banyak elemen (HTMLCollection) yang memiliki attribute class dengan nilai “button”.</td>
+        </tr>
+        <tr>
+            <td>getElementsByTagName()</td>
+            <td>document.getElementsByTagname(“div”)</td>
+            <td>Mengembalikan banyak elemen (HTMLCollection) yang merupakan <'div'> elemen</td>
+        </tr>
+        <tr>
+            <td>querySelector()</td>
+            <td>document.querySelector(“.button”);</td>
+            <td>Mengembalikan elemen pertama yang menerapkan class “button”.</td>
+        </tr>
+        <tr>
+            <td>querySelectorAll()</td>
+            <td>document.querySelectorAll(“.button”);</td>
+            <td>Mengembalikan banyak elemen (HTMLCollection) yang menerapkan class “button”.</td>
+        </tr>
+    </table>
+    <div>
+        <h2>Note!</h2>
+        <p>
+            Dalam menggunakan method querySelector() tentu kita menggunakan query dalam menentukan target elemen. Untuk
+            menargetkan elemen berdasarkan attribute class, kita gunakan tanda “.”, sedangkan jika kita menargetkan
+            dengan
+            menggunakan id, gunakan tanda “#”.
+        </p>
+
+        <p>
+            Selain querySelector() masih terdapat method lain yang sudah disebutkan sebelumnya untuk mendapatkan elemen
+            secara spesifik, Anda bisa mencoba sendiri method tersebut pada console browser, dan carilah perbedaan
+            fungsi
+            dari masing-masing method-nya.
+        </p>
+    </div>
+    <div>
+        <h2>manipulate element</h2>
+        <p>
+            Memanipulasi Atribut
+            Untuk mengubah atau menambah nilai atribut pada elemen, apa method yang kita gunakan? setAttribute()
+            jawabannya. Method ini membutuhkan dua buah argumen string yang merupakan nama dan nilai dari atributnya.
+        </p>
+        <table>
+            <tr>
+                <td>
+                    someElement.setAttribute("attributName", "attributeValue");
+                </td>
+            </tr>
+        </table>
+        <h3>Example</h3>
+        <figure>
+            <img id="catImage" src="https://i.ibb.co/9WT6LG6/two-three.jpg" alt="three-cats" width="600px" />
+            <figcaption id="caption1">Tiga Anak Kucing</figcaption>
+            <figcaption id="caption2">Tiga Anak Kucing</figcaption>
+        </figure>
+    </div>
+    <div>
+        <h2>Membuat dan Menambahkan Elemen Baru</h2>
+        <p>Dalam membuat elemen baru, DOM telah menyediakan method yang bernama createElement().</p>
+        <table>
+            <tr>
+                <td>
+                    let newElement = document.createElement('p');
+                </td>
+            </tr>
+        </table>
+        <p>
+            Dengan menjalankan perintah tersebut maka terciptalah elemen paragraf baru yang diinisialisasi pada variabel
+            newElement.
+
+            Pada variabel newElement kita dapat memberikan nilai konten dengan menggunakan properti innerHTML ataupun
+            innerText.
+        </p>
+        <table>
+            <tr>
+                <td>
+                    <p>newElement.innerHTML = 'Anda menekan gambar kucing sebanyak <'span id="count">0</span> kali';</p>
+                </td>
+            </tr>
+        </table>
+        <p>
+            Walaupun sekarang variabel newElement sudah memiliki konten di dalamnya, tetapi mengapa belum muncul pada
+            jendela browser? Hal tersebut karena fungsi createElement() hanya akan membuat sebuah elemen baru, tidak
+            berarti ia akan memasukkannya ke dalam document.body.
+
+            Agar elemen baru tampil pada jendela browser, kita perlu memasukkan elemen tersebut pada body dengan
+            menggunakan fungsi appendChild();
+        </p>
+        <table>
+            <tr>
+                <td>
+                    document.body.appendChild(newElement);
+                </td>
+            </tr>
+        </table>
+        <div>
+            <figure>
+                <img id="catImage2" src="https://i.ibb.co/9WT6LG6/two-three.jpg" alt="three-cats" width="600px" />
+                <figcaption id="caption1">Tiga Anak Kucing</figcaption>
+            </figure>
+        </div>
+    </div>
+    <div>
+        <h2>Menambahkan Aksi (Event) pada Element</h2>
+        <p>Untuk menambahkan Event Handler pada elemen kita gunakan method, addEventListener() pada target element. Method ini membutuhkan setidaknya dua buah argument.</p>
+        <p>Yang pertama adalah sebuah string sebagai tipe event-nya. Ada banyak sekali tipe event yang dapat digunakan pada method addEventListener(), Anda bisa melihat secara lengkap pada tautan berikut: https://developer.mozilla.org/en-US/docs/Web/Events. Salah satu yang banyak digunakan adalah “click”. Event ini akan membaca kejadian dimana pengguna melakukan click pada element.</p>
+        <p>Kemudian yang kedua adalah sebuah fungsi yang akan dijalankan ketika event terjadi. Pada fungsi ini kita dapat memberikan sebuah argumen yang merupakan object yang berisikan informasi tentang action yang terjadi. Termasuk informasi mengenai target elemen event-nya (event.target). Argumen ini biasanya diberikan nama “event”.</p>
+        <table>
+            <tr>
+                <td>
+                    catImage.addEventListener('click', function(event) {
+                        document.querySelector('#count').innerText++;
+                     });
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        let catImg = document.querySelector("#catImage")
+        catImg.setAttribute("src", "https://i.ibb.co/55VG7vL/three-cat.jpg")
+        catImg.addEventListener('click', function(event){
+            document.querySelector('#count').innerText++;
+        });
+
+        let caption = document.querySelector("#caption1")
+        caption.innerHTML = ("<strong>Tiga Anak Kucing Imut</strong>")
+        let caption2 = document.querySelector("#caption2")
+        caption2.innerText = "<b>HAHAHAHA</b>"
+        let newElement = document.createElement('p')
+        newElement.innerHTML = 'Anda menekan gambar kucing sebanyak <span id="count">0</span>'
+        document.body.appendChild(newElement)
+       
+    </script>
+</body>
+
+</html>
